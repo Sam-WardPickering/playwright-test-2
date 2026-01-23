@@ -11,7 +11,7 @@ test.only('Login test', async ({ page }) => {
 
     await page.getByRole('button', { name: /login/i }).click();
 
-    await expect(page).toHaveURL(/secure/i);
+    await expect(page.getByText('You logged into a secure area')).toBeVisible();
     await expect(page.locator('h4.subheader')).toContainText('Welcome to the Secure Area. When you are done click logout below.');
 
     await page.pause();
