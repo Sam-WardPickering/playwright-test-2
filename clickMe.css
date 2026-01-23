@@ -1,3 +1,16 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.button-style {
+    padding: 10px 20px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.counter-style {
+    margin-top: 20px;
+    font-size: 20px;
 }
