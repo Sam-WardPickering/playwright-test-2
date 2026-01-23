@@ -11,6 +11,8 @@ test.only('Login test', async ({ page }) => {
 
     await page.getByRole('button', { name: /login/i }).click();
 
+    await expect(page).toHaveURL(/secure/i);
+
     await page.pause();
     
 
