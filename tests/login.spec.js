@@ -19,7 +19,7 @@ test.only('Login test', async ({ page }) => {
     await page.pause();
 
     // Logout
-    await page.locator('a.button.second.radius:has-text("Logout")').click();
+    await page.locator('a.button.secondary.radius:has-text("Logout")').click();
 
     // Validate logout
     await page.getByLabel('Username').click();
