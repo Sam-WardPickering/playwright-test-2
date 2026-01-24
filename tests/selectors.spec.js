@@ -21,6 +21,12 @@ test.only("Using selectors", async ({ page }) => {
     await page.locator('[id="clickButton"]').click();
     await page.locator('[class="button-style"]').click();
 
-    await expect(page.locator("#counter")).toHaveText("6");
+    // Partial Attribute 
+    await page.locator('[role*="but"]').click();
+
+    // By text content
+    await page.locator('text=CLICK ME').click();
+
+    await expect(page.locator("#counter")).toHaveText("8");
 
 });
