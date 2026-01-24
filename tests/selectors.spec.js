@@ -33,6 +33,12 @@ test.only("Using selectors", async ({ page }) => {
     // Find elements containing specific text
     await page.locator('button:has-text("click m")').click();
 
-    await expect(page.locator("#counter")).toHaveText("10");
+    // Attribute & text
+    await page.locator('[data-action="increment"]:text("CLICK ME")').click();
+
+    // Playwright locators
+    await page.getByText("CLICK ME", { exact: true }).click();
+
+    await expect(page.locator("#counter")).toHaveText("12");
 
 });
