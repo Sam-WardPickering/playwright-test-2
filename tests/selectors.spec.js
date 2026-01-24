@@ -38,7 +38,8 @@ test.only("Using selectors", async ({ page }) => {
 
     // Playwright locators
     await page.getByText("CLICK ME", { exact: true }).click();
+    await page.getByRole("button", { name: "CLICK ME" }).click();
 
-    await expect(page.locator("#counter")).toHaveText("12");
+    await expect(page.locator("#counter")).toHaveText("13");
 
 });
