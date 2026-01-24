@@ -17,6 +17,10 @@ test.only("Using selectors", async ({ page }) => {
     // By Attribute Value
     await page.locator('[data-action="increment"]').click();
 
-    await expect(page.locator("#counter")).toHaveText("4");
+    // Alt method of using ID & Class
+    await page.locator('[id="clickButton"]').click();
+    await page.locator('[class="button-style"]').click();
+
+    await expect(page.locator("#counter")).toHaveText("6");
 
 });
