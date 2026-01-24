@@ -27,9 +27,12 @@ test.only("Using selectors", async ({ page }) => {
     // By text content
     await page.locator('text=CLICK ME').click();
 
-    // Combined for precision
+    // Class + text - find exact text match
     await page.locator('.button-style:text("CLICK ME")').click();
 
-    await expect(page.locator("#counter")).toHaveText("9");
+    // Find elements containing specific text
+    await page.locator('button:has-text("click m")').click();
+
+    await expect(page.locator("#counter")).toHaveText("10");
 
 });
