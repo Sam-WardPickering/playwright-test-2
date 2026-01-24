@@ -14,6 +14,6 @@ test.only("Using selectors", async ({ page }) => {
     //By tag and class
     await page.locator("button.button-style").click();
 
-    await expect(page.locator("#counter")).toHaveCount(3);
+    await expect(page.locator("#counter")).toContainText("3");
 
 });
