@@ -27,6 +27,9 @@ test.only("Using selectors", async ({ page }) => {
     // By text content
     await page.locator('text=CLICK ME').click();
 
-    await expect(page.locator("#counter")).toHaveText("8");
+    // Combined for precision
+    await page.locator('.button-style:text("CLICK ME")').click();
+
+    await expect(page.locator("#counter")).toHaveText("9");
 
 });
