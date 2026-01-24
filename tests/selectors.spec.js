@@ -8,7 +8,7 @@ test.only("Using selectors", async ({ page }) => {
     // Selecting by ID
     // await page.locator("#clickButton").click();
 
-    await page.locator(".clickButton").click();
+    await page.locator(".button-style").click();
 
     await expect(page.locator("#clickButton")).toHaveCount(1);
 
