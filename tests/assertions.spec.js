@@ -1,12 +1,13 @@
 import { test, expect } from '@playwright/test';
 
 test.describe.only('Practicing Assertions', async () => {
+    const url = 'https://the-internet.herokuapp.com/';
 
     test('Verify web page behaviour', async ({ page }) => {
-        await page.goto('https://the-internet.herokuapp.com/');
+        await page.goto(url);
 
         // Assert URL
-        await expect(page).toHaveURL('https://the-internet.herokuapp.com/');
+        await expect(page).toHaveURL(url);
 
         // Assert title
         await expect(page).toHaveTitle('The Internet');
@@ -14,6 +15,8 @@ test.describe.only('Practicing Assertions', async () => {
     });
 
     test.only('Continue with assertions', async ({ page }) => {
+        await page.goto(url);
+        
         // Assert visibility
         await expect(page.locator('h1')).toBeVisible();
     });
