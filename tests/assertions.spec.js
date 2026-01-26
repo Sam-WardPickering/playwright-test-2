@@ -19,5 +19,8 @@ test.describe.only('Practicing Assertions', async () => {
         
         // Assert visibility
         await expect(page.locator('h1')).toBeVisible();
+
+        //Assert element text
+        await expect(page.locator('h2')).toHaveText('Available Examples');
     });
 });
