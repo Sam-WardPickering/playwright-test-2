@@ -51,5 +51,8 @@ test.describe.only('Practicing Assertions', async () => {
         await page.locator('#username').fill('tomsmith');
         await expect(page.locator('#username')).toHaveValue('tomsmith');
 
+        // Assert enabled
+        await expect(page.locator('button[type="submit"]')).toBeEnabled();
+
     });
 });
