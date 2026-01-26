@@ -2,7 +2,7 @@
 
 import { test, expect } from '@playwright/test';
 
-test.only("Using selectors", async ({ page }) => {
+test("Using selectors", async ({ page }) => {
     await page.goto('http://127.0.0.1:5500/clickMe.html')
 
     // By ID

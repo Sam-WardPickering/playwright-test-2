@@ -16,15 +16,11 @@ test.only('Login test', async ({ page }) => {
     await expect(page.getByText('You logged into a secure area')).toBeVisible();
     await expect(page.locator('h4.subheader')).toContainText('Welcome to the Secure Area. When you are done click logout below.');
 
-    await page.pause();
-
     // Logout
-    await page.locator('a.button.secondaryy.radius:has-text("Logout")').click();
+    await page.locator('a.button.secondary.radius:has-text("Logout")').click();
 
     // Validate logout
     await page.getByLabel('Username').click();
     await page.getByRole('textbox', { name: 'Username' }).fill('11');
     await expect(page.getByRole('textbox', { name: 'Username' })).toHaveValue('11');
-
-    await page.pause();
 });

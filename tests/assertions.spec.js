@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe.only('Practicing Assertions', async () => {
+test.describe('Practicing Assertions', async () => {
     const url = 'https://the-internet.herokuapp.com/';
 
     test('Verify web page behaviour', async ({ page }) => {
