@@ -56,9 +56,9 @@ test.describe.only('Practicing Assertions', async () => {
 
     });
 
-    test.only('Continue with assertions part 4', async ({ page }) => {
+    test('Continue with assertions part 4', async ({ page }) => {
         page.goto(url);
-        
+
         // Verify variable content
         const headerText = await page.locator('h1').textContent();
         expect(headerText).toBe('Welcome to the-internet');
