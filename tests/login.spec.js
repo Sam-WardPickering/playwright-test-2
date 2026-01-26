@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.only('Login test', async ({ page }) => {
+test('Login test @smoke @regression', async ({ page }) => {
     await page.goto('https://the-internet.herokuapp.com/login');
 
     // Login
