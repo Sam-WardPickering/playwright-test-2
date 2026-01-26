@@ -14,7 +14,7 @@ test.describe.only('Practicing Assertions', async () => {
 
     });
 
-    test.only('Continue with assertions', async ({ page }) => {
+    test('Continue with assertions', async ({ page }) => {
         await page.goto(url);
         
         // Assert visibility
@@ -25,5 +25,12 @@ test.describe.only('Practicing Assertions', async () => {
 
         // Assert contains text
         await expect(page.locator('body')).toContainText('WYSIWYG');
+    });
+
+    test.only('Continue with assertions part 2', async ({ page }) => {
+        await page.goto(url);
+
+        // Assert count
+        await expect(page.locator('a')).toHaveCount(46); 
     });
 });
