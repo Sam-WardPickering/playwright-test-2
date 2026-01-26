@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Practicing Assertions', async () => {
+test.describe('Practicing Assertions @assertions_group', async () => {
     const url = 'https://the-internet.herokuapp.com/';
 
-    test('Verify web page behaviour', async ({ page }) => {
+    test('Verify web page behaviour @smoke', async ({ page }) => {
         await page.goto(url);
 
         // Assert URL
