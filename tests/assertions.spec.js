@@ -44,7 +44,7 @@ test.describe.only('Practicing Assertions', async () => {
 
     });
 
-    test.only('Continue with assertions part 3', async ({ page }) => {
+    test('Continue with assertions part 3', async ({ page }) => {
         await page.goto('https://the-internet.herokuapp.com/login');
 
         // Assert value
@@ -54,5 +54,13 @@ test.describe.only('Practicing Assertions', async () => {
         // Assert enabled
         await expect(page.locator('button[type="submit"]')).toBeEnabled();
 
+    });
+
+    test.only('Continue with assertions part 4', async ({ page }) => {
+        page.goto(url);
+        
+        // Verify variable content
+        const headerText = await page.locator('h1').textContent();
+        expect(headerText).toBe('Welcome to the-internet');
     });
 });
