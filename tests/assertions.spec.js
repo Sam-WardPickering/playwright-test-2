@@ -32,5 +32,15 @@ test.describe.only('Practicing Assertions', async () => {
 
         // Assert count
         await expect(page.locator('a')).toHaveCount(46); 
+
+        // Assert checked
+        await page.goto('https://the-internet.herokuapp.com/checkboxes');
+
+        await page.getByRole('checkbox').nth(0).check();
+        await page.getByRole('checkbox').nth(1).uncheck();
+
+        await expect(page.getByRole('checkbox').nth(0)).toBeChecked();
+        await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
+
     });
 });
