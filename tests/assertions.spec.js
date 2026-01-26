@@ -27,7 +27,7 @@ test.describe.only('Practicing Assertions', async () => {
         await expect(page.locator('body')).toContainText('WYSIWYG');
     });
 
-    test.only('Continue with assertions part 2', async ({ page }) => {
+    test('Continue with assertions part 2', async ({ page }) => {
         await page.goto(url);
 
         // Assert count
@@ -41,6 +41,15 @@ test.describe.only('Practicing Assertions', async () => {
 
         await expect(page.getByRole('checkbox').nth(0)).toBeChecked();
         await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
+
+    });
+
+    test.only('Continue with assertions part 3', async ({ page }) => {
+        await page.goto('https://the-internet.herokuapp.com/login');
+
+        // Assert value
+        await page.locator('#username').fill('tomsmith');
+        await expect(page.locator('#username')).toHaveValue('tomsmith');
 
     });
 });
