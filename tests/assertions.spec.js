@@ -22,5 +22,8 @@ test.describe.only('Practicing Assertions', async () => {
 
         //Assert element text
         await expect(page.locator('h2')).toHaveText('Available Examples');
+
+        // Assert contains text
+        await expect(page.locator('body')).toContainText('WYSIWYG');
     });
 });
