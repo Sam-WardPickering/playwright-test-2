@@ -26,3 +26,16 @@ test.beforeEach(async () => {
 
     console.log("BEFORE EACH HOOK LAUNCHED NEW PAGE")
 });
+
+test.afterEach(async () => {
+    // Close page & context
+    await page.close();
+    await context.close();
+
+    console.log("AFTER EACH HOOK CLOSED PAGE")
+});
+
+test.afterAll(async () => {
+    // Close browser
+    await browser.close();
+});
