@@ -42,7 +42,13 @@ test('Click A/B Testing Link', async () => {
 
     const header = await page.textContent('h3');
 
-    console.log(header);
-
     expect(header).toBe('A/B Test Control');
+});
+
+test('Verify checkbox states', async () => {
+    await page.click('text="Checkboxes"');
+
+    const checkbox = await page.isChecked('input[type="checkbox"]:first-child');
+
+    expect(checkbox).toBe(false);
 });
