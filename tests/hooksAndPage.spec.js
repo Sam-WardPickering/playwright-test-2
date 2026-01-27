@@ -52,3 +52,14 @@ test('Verify checkbox states', async () => {
 
     expect(checkbox).toBe(false);
 });
+
+test.only('Test geolocation verification', async () => {
+    // override context
+    context = await browser.newContext({
+        permissions: ['geolocation'],
+        geolocation: {
+            latitude: '37.774929',
+            longitude: '-122.419416'
+        }
+    })
+})
