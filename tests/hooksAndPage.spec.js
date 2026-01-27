@@ -21,9 +21,6 @@ test.beforeEach(async () => {
     // Navigate to test URL
     await page.goto('/');
 
-    // Pause execution
-    await page.pause();
-
     console.log("BEFORE EACH HOOK LAUNCHED NEW PAGE")
 });
 
@@ -38,4 +35,14 @@ test.afterEach(async () => {
 test.afterAll(async () => {
     // Close browser
     await browser.close();
+});
+
+test('Click A/B Testing Link', async () => {
+    await page.click('text="A/B Testing"');
+
+    const header = await page.textContent('h3');
+
+    console.log(header);
+
+    expect(header).toBe('A/B Test Control');
 });
