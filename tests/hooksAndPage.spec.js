@@ -5,43 +5,47 @@ let browser;
 let context;
 let page;
 
-test.beforeAll(async () => {
-    // Launch chrome browser before all tests
-    browser = await chromium.launch();
-    console.log("BEFORE ALL HOOK LAUNCHED CHROMIUM BROWSER");
-});
-
-
-test.beforeEach(async () => {
-    // Create context for a browser
-    context = await browser.newContext();
-
-    // Create new page
-    page = await context.newPage();
-
-    // Navigate to test URL
-    await page.goto('/');
-
-    console.log("BEFORE EACH HOOK LAUNCHED NEW PAGE")
-});
-
-
-test.afterEach(async () => {
-    // Close page & context
-    await page.close();
-    await context.close();
-
-    console.log("AFTER EACH HOOK CLOSED PAGE")
-});
-
-
-test.afterAll(async () => {
-    // Close browser
-    await browser.close();
-});
-
-
 test.describe('Describe block for hooks', () => {
+
+    test.beforeAll(async () => {
+        // Launch chrome browser before all tests
+        browser = await chromium.launch({
+            headless: true
+        });
+        
+        console.log("BEFORE ALL HOOK LAUNCHED CHROMIUM BROWSER");
+    });
+
+
+    test.beforeEach(async () => {
+        // Create context for a browser
+        context = await browser.newContext();
+
+        // Create new page
+        page = await context.newPage();
+
+        // Navigate to test URL
+        await page.goto('/');
+
+        console.log("BEFORE EACH HOOK LAUNCHED NEW PAGE")
+        await page.pause();
+    });
+
+
+    test.afterEach(async () => {
+        // Close page & context
+        await page.close();
+        await context.close();
+
+        console.log("AFTER EACH HOOK CLOSED PAGE")
+    });
+
+
+    test.afterAll(async () => {
+        // Close browser
+        await browser.close();
+        console.log('AFTER ALL HOOK CLOSED BROWSER');
+    });
 
     test('Click A/B Testing Link', async () => {
         await page.click('text="A/B Testing"');
@@ -59,9 +63,9 @@ test.describe('Describe block for hooks', () => {
 
         expect(checkbox).toBe(false);
     });
-    
 
-    test.only('Test geolocation verification', async () => {
+
+    test('Test geolocation verification', async () => {
         const latitude = 37.774929;
         const longitude = -122.419416;
 
