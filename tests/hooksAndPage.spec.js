@@ -54,12 +54,31 @@ test('Verify checkbox states', async () => {
 });
 
 test.only('Test geolocation verification', async () => {
+    const latitude = 37.774929;
+    const longitude = -122.419416;
+
     // override context
     context = await browser.newContext({
         permissions: ['geolocation'],
         geolocation: {
-            latitude: '37.774929',
-            longitude: '-122.419416'
+            latitude: latitude,
+            longitude: longitude
+        },
+        viewport: {
+            width: 1280,
+            height: 720
         }
-    })
+    });
+
+    page = await context.newPage();
+    await page.goto('/geolocation');
+
+    await page.click('button');
+
+    const pageLat = await page.textContent('#lat-value');
+    const pageLong = await page.textContent('#long-value');
+
+    expect(parseFloat(pageLat)).toBeCloseTo(latitude);
+    expect(parseFloat(pageLong)).toBeCloseTo(longitude);
+
 })
