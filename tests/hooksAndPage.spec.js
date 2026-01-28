@@ -11,6 +11,7 @@ test.beforeAll(async () => {
     console.log("BEFORE ALL HOOK LAUNCHED CHROMIUM BROWSER");
 });
 
+
 test.beforeEach(async () => {
     // Create context for a browser
     context = await browser.newContext();
@@ -24,6 +25,7 @@ test.beforeEach(async () => {
     console.log("BEFORE EACH HOOK LAUNCHED NEW PAGE")
 });
 
+
 test.afterEach(async () => {
     // Close page & context
     await page.close();
@@ -32,56 +34,64 @@ test.afterEach(async () => {
     console.log("AFTER EACH HOOK CLOSED PAGE")
 });
 
+
 test.afterAll(async () => {
     // Close browser
     await browser.close();
 });
 
-test('Click A/B Testing Link', async () => {
-    await page.click('text="A/B Testing"');
 
-    const header = await page.textContent('h3');
+test.describe('Describe block for hooks', () => {
 
-    expect(header).toBe('A/B Test Control');
-});
+    test('Click A/B Testing Link', async () => {
+        await page.click('text="A/B Testing"');
 
-test('Verify checkbox states', async () => {
-    await page.click('text="Checkboxes"');
+        const header = await page.textContent('h3');
 
-    const checkbox = await page.isChecked('input[type="checkbox"]:first-child');
-
-    expect(checkbox).toBe(false);
-});
-
-test.only('Test geolocation verification', async () => {
-    const latitude = 37.774929;
-    const longitude = -122.419416;
-
-    // override context
-    context = await browser.newContext({
-        permissions: ['geolocation'],
-        geolocation: {
-            latitude: latitude,
-            longitude: longitude
-        },
-        viewport: {
-            width: 1280,
-            height: 720
-        }
+        expect(header).toBe('A/B Test Control');
     });
 
-    page = await context.newPage();
+
+    test('Verify checkbox states', async () => {
+        await page.click('text="Checkboxes"');
+
+        const checkbox = await page.isChecked('input[type="checkbox"]:first-child');
+
+        expect(checkbox).toBe(false);
+    });
     
-    console.log("USING CONTEXT AND PAGE CREATED WITHIN TEST & NOT WITHIN HOOKS");
 
-    await page.goto('/geolocation');
+    test.only('Test geolocation verification', async () => {
+        const latitude = 37.774929;
+        const longitude = -122.419416;
 
-    await page.click('button');
+        // override context
+        context = await browser.newContext({
+            permissions: ['geolocation'],
+            geolocation: {
+                latitude: latitude,
+                longitude: longitude
+            },
+            viewport: {
+                width: 1280,
+                height: 720
+            }
+        });
 
-    const pageLat = await page.textContent('#lat-value');
-    const pageLong = await page.textContent('#long-value');
+        page = await context.newPage();
 
-    expect(parseFloat(pageLat)).toBeCloseTo(latitude);
-    expect(parseFloat(pageLong)).toBeCloseTo(longitude);
+        console.log("USING CONTEXT AND PAGE CREATED WITHIN TEST & NOT WITHIN HOOKS");
 
-})
+        await page.goto('/geolocation');
+
+        await page.click('button');
+
+        const pageLat = await page.textContent('#lat-value');
+        const pageLong = await page.textContent('#long-value');
+
+        expect(parseFloat(pageLat)).toBeCloseTo(latitude);
+        expect(parseFloat(pageLong)).toBeCloseTo(longitude);
+
+    });
+
+});
