@@ -71,6 +71,9 @@ test.only('Test geolocation verification', async () => {
     });
 
     page = await context.newPage();
+    
+    console.log("USING CONTEXT AND PAGE CREATED WITHIN TEST & NOT WITHIN HOOKS");
+
     await page.goto('/geolocation');
 
     await page.click('button');
