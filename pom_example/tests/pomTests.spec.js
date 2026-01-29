@@ -5,7 +5,7 @@ let pm;
 
 test.describe('Login Tests', () => {
     test.beforeEach(async ({ page }) => {
-        pm = new LoginPage(page);
+        pm = new PomManager(page);
     });
     
     test('Login with valid credentials', async () => {
