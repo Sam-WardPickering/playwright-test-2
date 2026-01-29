@@ -5,4 +5,14 @@ export default class SecurePage {
     constructor(page) {
         this.actions = new CommonActions(page);
     }
+
+    async getMessage() {
+        return await this.actions.getText('#flash');
+    };
+
+    async assertLoggiedInMsg(msg) {
+        const message = await this.getMessage();
+
+        expect(message).toContain(msg);
+    }
 };
