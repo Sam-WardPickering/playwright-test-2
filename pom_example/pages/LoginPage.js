@@ -25,8 +25,8 @@ export default class LoginPage {
         return await this.actions.getText('#flash');
     }
 
-    async assertErrorMsg(expectedMsg) {
-        const actualMsg = await this.getErrorMsg();
-        expect(actualMsg).toContain(expectedMsg);
-    }
+    // async assertErrorMsg(expectedMsg) {
+    //     const actualMsg = await this.getErrorMsg();
+    //     expect(actualMsg).toContain(expectedMsg);
+    // }
 }

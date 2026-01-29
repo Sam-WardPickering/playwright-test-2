@@ -27,7 +27,14 @@ test.describe('Login Tests', () => {
     test('Login with invalid credentials', async ({ page }) => {
         await pm.loginPage.navigate();
         await pm.loginPage.login('invalidUser', 'SuperSecretPassword!');
-        await pm.loginPage.assertErrorMsg('Your username is invalid!');
+
+        // Assert value using LoginPage assert method
+        // await pm.loginPage.assertErrorMsg('Your username is invalid!');
+
+        // Assert value directly in test - best practice
+        const message = await pm.loginPage.getErrorMsg();
+        expect(message).toContain('Your username is invalid!');
+
 
     });
 
