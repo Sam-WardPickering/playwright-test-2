@@ -1,16 +1,16 @@
 import { test, expect } from '@playwright/test';
-import LoginPage from '../pages/LoginPage';
+import PomManager from '../pages/PomManager';
 
-let loginPage;
+let pm;
 
 test.describe('Login Tests', () => {
     test.beforeEach(async ({ page }) => {
-        loginPage = new LoginPage(page);
+        pm = new LoginPage(page);
     });
     
     test('Login with valid credentials', async () => {
-        await loginPage.navigate();
-        await loginPage.login('tomsmith', 'SuperSecretPassword!');
+        await pm.loginPage.navigate();
+        await pm.loginPage.login('tomsmith', 'SuperSecretPassword!');
     });
 
 });
