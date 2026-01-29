@@ -49,11 +49,17 @@ test.describe('Checkbox verification', () => {
     test.only('Check and uncheck checkboxes', async () => {
         await pm.checkboxesPage.navigate();
 
-        // Check the second checkbox
+        // Check the first checkbox
         await pm.checkboxesPage.checkCheckbox(1);
 
-        // Verify second checkbox is checked
+        // Verify first checkbox is checked
         await pm.checkboxesPage.assertCheckbox(1, true);
+
+        // Check the second checkbox
+        await pm.checkboxesPage.checkCheckbox(2);
+
+        // Verify second checkbox is checked
+        await pm.checkboxesPage.assertCheckbox(2, false);
 
     });
 });
