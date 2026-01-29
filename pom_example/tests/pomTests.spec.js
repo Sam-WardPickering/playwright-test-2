@@ -42,4 +42,18 @@ test.describe('Login Tests', () => {
 
 test.describe('Checkbox verification', () => {
 
+    test.beforeEach(async ({ page }) => {
+        pm = new PomManager(page);
+    });
+
+    test.only('Check and uncheck checkboxes', async () => {
+        await pm.checkboxesPage.navigate();
+
+        // Check the second checkbox
+        await pm.checkboxesPage.checkCheckbox(1);
+
+        // Verify second checkbox is checked
+        await pm.checkboxesPage.assertCheckbox(1, true);
+
+    });
 });

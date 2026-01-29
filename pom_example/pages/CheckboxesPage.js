@@ -14,12 +14,12 @@ export default class CheckboxesPage {
         await this.actions.click(`input[type="checkbox"]:nth-of-type(${index})`);
     };
 
-    async IsCheckboxChecked(index) {
+    async isCheckboxChecked(index) {
         return await this.actions.isChecked(`input[type="checkbox"]:nth-of-type(${index})`);
     }
 
     async assertCheckbox(index, expectedChecked) {
-        const isChecked = await this.IsCheckboxChecked(index);
+        const isChecked = await this.isCheckboxChecked(index);
         expect(isChecked).toBe(expectedChecked);
     }
 };
