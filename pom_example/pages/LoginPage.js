@@ -17,7 +17,6 @@ export default class LoginPage {
     async login(username, password) {
         await this.actions.fill(this.usernameSelector, username);
         await this.actions.fill(this.passwordSelector, password);
-
         await this.actions.click(this.submitBtnSelector);
     }
 }
