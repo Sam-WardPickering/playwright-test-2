@@ -39,3 +39,7 @@ test.describe('Login Tests', () => {
     });
 
 });
+
+test.describe('Checkbox verification', () => {
+
+});
