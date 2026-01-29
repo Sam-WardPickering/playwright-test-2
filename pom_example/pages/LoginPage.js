@@ -8,10 +8,11 @@ export default class LoginPage {
         this.usernameSelector = '#username';
         this.passwordSelector = '#password';
         this.submitBtnSelector = 'button[type="submit"]';
+        this.loginURL = 'https://the-internet.herokuapp.com/login';
     }
 
     async navigate() {
-        await this.actions.navigate('/login')
+        await this.actions.navigate(this.loginURL)
     }
 
     async login(username, password) {
