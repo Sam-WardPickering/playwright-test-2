@@ -24,4 +24,11 @@ test.describe('Login Tests', () => {
         expect(message).toContain('You logged into a secure area!');
     });
 
+    test('Login with invalid credentials', async ({ page }) => {
+        await pm.loginPage.navigate();
+        await pm.loginPage.login('invalidUser', 'SuperSecretPassword!');
+        await pm.loginPage.assertErrorMsg('Your username is invalid!');
+
+    });
+
 });
