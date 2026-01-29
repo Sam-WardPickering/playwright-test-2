@@ -10,7 +10,7 @@ export default class SecurePage {
         return await this.actions.getText('#flash');
     };
 
-    async assertLoggiedInMsg(msg) {
+    async assertLoggedInMsg(msg) {
         const message = await this.getMessage();
 
         expect(message).toContain(msg);
