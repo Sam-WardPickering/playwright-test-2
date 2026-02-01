@@ -15,5 +15,6 @@ test.describe('API verification examples', () => {
         //console.log(responseBody);
 
         expect(response.status()).toBe(200);
+        expect(responseBody).toEqual(users);
     })
 });
