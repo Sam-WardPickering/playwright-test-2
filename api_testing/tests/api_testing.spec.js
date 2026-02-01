@@ -3,7 +3,7 @@ import users from '../test-data/usersResponse.json'
 
 test.describe('API verification examples', () => {
 
-    // Test to verify users endpoint is returning expected user data
+    // 1) Test to verify users endpoint is returning expected user data
     test('Verify multi records against stored static response', async ({ request }) => {
         // Save raw response into a variable
         const response = await request.get('https://reqres.in/api/users', { headers: {'x-api-key': 'reqres_f477729486b947269579c7b1c056f338'}});
@@ -17,4 +17,6 @@ test.describe('API verification examples', () => {
         expect(response.status()).toBe(200);
         expect(responseBody).toEqual(users);
     })
+
+    // 2) Test daya for a single user line by line
 });
