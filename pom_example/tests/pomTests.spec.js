@@ -46,7 +46,7 @@ test.describe('Checkbox verification', () => {
         pm = new PomManager(page);
     });
 
-    test.only('Check and uncheck checkboxes', async () => {
+    test('Check and uncheck checkboxes', async () => {
         await pm.checkboxesPage.navigate();
 
         // Check the first checkbox
