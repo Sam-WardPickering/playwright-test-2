@@ -11,6 +11,8 @@ test.describe('API verification examples', () => {
         const responseBody = await response.json();
 
         // Inspect contents of response body
-        console.log(responseBody);
+        //console.log(responseBody);
+
+        expect(response.status()).toBe(200);
     })
 });
