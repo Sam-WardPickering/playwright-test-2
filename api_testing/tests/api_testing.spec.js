@@ -24,6 +24,13 @@ test.describe('API verification examples', () => {
 
         const responseBody = await response.json();
 
-        console.log(responseBody);
+        // console.log(responseBody);
+
+        expect(response.status()).toBe(200);
+        expect(responseBody.data.id).toBe(1);
+        expect(responseBody.data.email).toBe('george.bluth@regres.in');
+        expect(responseBody.data.first_name).toBe('George');
+        expect(responseBody.data.last_name).toBe('Bluth');
+        expect(responseBody.data.avatar).toBe('https://reqres.in/img/faces/1-image.jpg');
     });
 });
