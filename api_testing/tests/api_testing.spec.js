@@ -28,7 +28,7 @@ test.describe('API verification examples', () => {
 
         expect(response.status()).toBe(200);
         expect(responseBody.data.id).toBe(1);
-        expect(responseBody.data.email).toBe('george.bluth@regres.in');
+        expect(responseBody.data.email).toBe('george.bluth@reqres.in');
         expect(responseBody.data.first_name).toBe('George');
         expect(responseBody.data.last_name).toBe('Bluth');
         expect(responseBody.data.avatar).toBe('https://reqres.in/img/faces/1-image.jpg');
