@@ -67,7 +67,7 @@ test.describe('API verification examples', () => {
         }
 
         // Create put request & save response
-        const response = await request.put('https://reqres.in/api/users', { 
+        const response = await request.put('https://reqres.in/api/users/1', { 
             data: updateUser,
             headers: {'x-api-key': 'reqres_f477729486b947269579c7b1c056f338'}
         });
