@@ -36,6 +36,19 @@ test.describe('API verification examples', () => {
 
     // 3) Test POST request
     test.only('Verify POST request', async ({ request }) => {
+        const newUser = {
+            name: "Sam",
+            job: "QA Engineer"
+        }
 
+        // Create request & save response
+        const response = await request.post('https://reqres.in/api/users', { 
+            data: newUser,
+            headers: {'x-api-key': 'reqres_f477729486b947269579c7b1c056f338'}
+        });
+
+        const responseBody = await response.json();
+
+        console.log(responseBody);
     });
 });
