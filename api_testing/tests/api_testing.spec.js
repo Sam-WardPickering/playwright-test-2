@@ -35,7 +35,7 @@ test.describe('API verification examples', () => {
     });
 
     // 3) Test POST request
-    test.only('Verify POST request', async ({ request }) => {
+    test('Verify POST request', async ({ request }) => {
 
         const newUser = {
             name: "Sam",
@@ -59,7 +59,7 @@ test.describe('API verification examples', () => {
     });
 
     // 4) Verify PUT request
-    test('Verify PUT request', async ({ request }) => {
+    test.only('Verify PUT request', async ({ request }) => {
 
         const updateUser = {
             name: "Mr Scott",
