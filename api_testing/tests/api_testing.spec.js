@@ -59,7 +59,7 @@ test.describe('API verification examples', () => {
     });
 
     // 4) Verify PUT request
-    test.only('Verify PUT request', async ({ request }) => {
+    test('Verify PUT request', async ({ request }) => {
 
         const updateUser = {
             name: "Mr Scott",
@@ -79,5 +79,10 @@ test.describe('API verification examples', () => {
         expect(responseBody.name).toBe(updateUser.name);
         expect(responseBody.job).toBe(updateUser.job);
 
+    });
+
+    // 5) Verify DELETE request
+    test('Verify DELETE request', async ({ request }) => {
+        
     });
 });
