@@ -82,7 +82,12 @@ test.describe('API verification examples', () => {
     });
 
     // 5) Verify DELETE request
-    test('Verify DELETE request', async ({ request }) => {
-        
+    test.only('Verify DELETE request', async ({ request }) => {
+        const response = await request.delete('https://reqres.in/api/users/1', { 
+            headers: {'x-api-key': 'reqres_f477729486b947269579c7b1c056f338'}
+        });
+
+        console.log(response);
+
     });
 });
