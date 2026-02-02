@@ -19,4 +19,11 @@ test.describe('API verification examples', () => {
     })
 
     // 2) Test daya for a single user line by line
+    test.only('Verify single user line by line', async ({ request }) => {
+        const response = await request.get('https://reqres.in/api/users/1', { headers: {'x-api-key': 'reqres_f477729486b947269579c7b1c056f338'}});
+
+        const responseBody = await response.json();
+
+        console.log(responseBody);
+    });
 });
