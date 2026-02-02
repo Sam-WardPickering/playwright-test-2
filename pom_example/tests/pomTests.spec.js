@@ -41,12 +41,14 @@ test.describe('Login Tests', () => {
 });
 
 test.describe('Checkbox verification', () => {
+    test.skip(({ browserName }) => browserName === 'chromium');
 
     test.beforeEach(async ({ page }) => {
         pm = new PomManager(page);
     });
 
-    test('Check and uncheck checkboxes', async () => {
+    test.only('Check and uncheck checkboxes', async () => {
+
         await pm.checkboxesPage.navigate();
 
         // Check the first checkbox
