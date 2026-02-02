@@ -74,7 +74,10 @@ test.describe('API verification examples', () => {
 
         const responseBody = await response.json();
 
-        console.log(responseBody);
+        // console.log(responseBody);
+        expect(response.status()).toBe(200);
+        expect(responseBody.name).toBe(updateUser.name);
+        expect(responseBody.job).toBe(updateUser.job);
 
     });
 });
