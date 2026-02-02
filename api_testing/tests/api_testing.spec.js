@@ -36,6 +36,7 @@ test.describe('API verification examples', () => {
 
     // 3) Test POST request
     test.only('Verify POST request', async ({ request }) => {
+
         const newUser = {
             name: "Sam",
             job: "QA Engineer"
@@ -55,5 +56,25 @@ test.describe('API verification examples', () => {
         expect(response.status()).toBe(201);
         expect(responseBody.name).toBe(newUser.name);
         expect(responseBody.job).toBe(newUser.job);
+    });
+
+    // 4) Verify PUT request
+    test('Verify PUT request', async ({ request }) => {
+
+        const updateUser = {
+            name: "Mr Scott",
+            job: "USA President"
+        }
+
+        // Create put request & save response
+        const response = await request.put('https://reqres.in/api/users', { 
+            data: updateUser,
+            headers: {'x-api-key': 'reqres_f477729486b947269579c7b1c056f338'}
+        });
+
+        const responseBody = await response.json();
+
+        console.log(responseBody);
+
     });
 });
